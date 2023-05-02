@@ -122,6 +122,23 @@ svg {
   }
 }
 
+/* general styling */
+
+body {
+  font-size: var(--fs-body);
+  font-family: var(--ff-body);
+  color: var(--clr-primary-400);
+}
+
+p:not([class]) {
+  opacity: .6;
+  max-width: 32ch;
+}
+
+p[data-width="wide"] {
+  max-width: 42ch;
+}
+
 /* button */
 
 .button {
@@ -368,6 +385,10 @@ svg {
   margin-inline: auto;
 }
 
+:where(.flow :not(:first-child)) {
+  margin-top: var(--flow-space, 3em);
+}
+
 .even-columns {
   display: flex;
   gap: 1rem;
@@ -385,12 +406,4 @@ svg {
     flex-grow: 1;
     flex-basis: 0;
   }
-}
-
-/* general styling */
-
-body {
-  font-size: var(--fs-body);
-  font-family: var(--ff-body);
-  color: var(--clr-primary-400);
 }
