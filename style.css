@@ -175,7 +175,7 @@ p[data-width="wide"] {
 /* primary navigation */
 
 .primary-header {
-  padding-top: var(--size-600);
+  padding-top: var(--size-700);
 }
 
 .nav-wrapper {
@@ -192,6 +192,7 @@ p[data-width="wide"] {
   font-size: var(--fs-nav);
   display: flex;
   gap: var(--size-400);
+  font-weight: var(--fw-bold);
 }
 
 .nav-list a {
@@ -252,6 +253,33 @@ p[data-width="wide"] {
   .mobile-nav-toggle .icon-close {
     display: none;
   }
+}
+
+/* CTA */
+
+.cta {
+  position: relative;
+  isolation: isolate;
+  text-align: center;
+}
+
+@media (min-width:50em) {
+  .cta {
+    text-align: left;
+  }
+}
+
+.cta::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background-image:
+    url("./assets/images/bg-tablet-pattern.svg"),
+    url("./assets/images/bg-tablet-pattern.svg");
+  background-position: -10rem -5rem, 80rem -42rem;
+  background-repeat: no-repeat;
+  inset: 0;
+  opacity: 0.05;
 }
 
 /* utility classes */
@@ -385,25 +413,28 @@ p[data-width="wide"] {
   margin-inline: auto;
 }
 
-:where(.flow :not(:first-child)) {
-  margin-top: var(--flow-space, 3em);
-}
-
 .even-columns {
-  display: flex;
+  display: grid;
   gap: 1rem;
-  flex-direction: column;
-  /* align-items: center; */
 }
 
 @media screen and (min-width:50em) {
   .even-columns {
-    flex-direction: row;
-    /* align-items: flex-start; */
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
   }
+}
 
-  .even-columns * {
-    flex-grow: 1;
-    flex-basis: 0;
+@media (min-width:50em) {
+  .justify-self-end-md {
+    justify-self: end;
   }
+}
+
+.vertical-align-center {
+  align-items: center;
+}
+
+:where(.flow :not(:first-child)) {
+  margin-top: var(--flow-space, 3em);
 }
